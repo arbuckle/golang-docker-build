@@ -1,0 +1,12 @@
+# Copyright David Arbuckle 2015
+# MIT Licensed
+
+FILENAME=example-project
+CONTAINER=$(FILENAME)
+TAG=latest
+
+build:
+	# Prints a complete record of all the artifacts in a namespace
+	docker run -v $(PWD):/build -e FILENAME=$(FILENAME) gobuild:0.1
+	docker build -t $(CONTAINER):$(TAG) .
+
